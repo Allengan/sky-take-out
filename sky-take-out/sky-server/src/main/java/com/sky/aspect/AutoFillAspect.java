@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 import java.time.LocalDateTime;
 
 /**
- * TODO 类描述
+ * 切面类对插入和修改方法进行设置公共字段
  *
  * @author Aaron.
  * @date 2023/10/3 15:12
