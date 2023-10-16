@@ -13,6 +13,7 @@ import com.sky.mapper.DishFlavorMapper;
 import com.sky.mapper.DishMapper;
 import com.sky.mapper.SetmealDishMapper;
 import com.sky.result.PageResult;
+import com.sky.result.Result;
 import com.sky.service.DishService;
 import com.sky.vo.DishVO;
 import lombok.extern.slf4j.Slf4j;
@@ -146,5 +147,17 @@ public class DishServiceImpl implements DishService {
             });
             dishFlavorMapper.insertbatch(flavors);
         }
+    }
+
+    /**
+     * 菜品的起售状态
+     * @param status
+     * @param id
+     * @return
+     */
+    @Override
+    public Result<String> getStatus(String status, String id) {
+        dishMapper.getStatus(status,id);
+        return Result.success();
     }
 }

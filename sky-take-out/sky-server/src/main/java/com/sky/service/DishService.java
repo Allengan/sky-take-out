@@ -3,6 +3,7 @@ package com.sky.service;
 import com.sky.dto.DishDTO;
 import com.sky.dto.DishPageQueryDTO;
 import com.sky.result.PageResult;
+import com.sky.result.Result;
 import com.sky.vo.DishVO;
 
 import java.util.List;
@@ -44,4 +45,12 @@ public interface DishService {
      * @param dishDTO
      */
     void updateWithFlavor(DishDTO dishDTO);
+
+    /**
+     * 菜品的起售状态
+     * @param status
+     * @param id
+     * @return
+     */
+    Result<String> getStatus(String status, String id);
 }

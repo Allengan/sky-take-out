@@ -62,4 +62,8 @@
         </set>
        where id = #{id}
     </update>
+    <!--菜品的起售状态-->
+    <update id="getStatus">
+        update dish set status = #{status} where id = #{id}
+    </update>
 </mapper>
