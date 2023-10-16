@@ -12,3 +12,19 @@ sky:
     access-key-id: LTAI5tCyZG1eogwajU2n7Tbh
     access-key-secret: aIammJLJRcuaUbuwdsaCELk7xXDufY
     bucket-name: sky-take-out-202310
+  redis:
+    host: localhost
+    port: 6379
+    password: root
+    database: 10
+  # 微信小程序配置
+  wechat:
+    appid: wxa6adaf704dd62f7a     #小程序的appid
+    secret: 4eb9ac9af54031f61ee5c145fa2aa1c2  #小程序的秘钥
+    #mchid: 1605278902
+    #mchSerialNo: 58F1380F88F96A0FE68773E96D8C3276AE3610EF
+    #privateKeyFilePath: F:\pay\apiclient_key.pem
+    #apiV3Key: 29afcfe4cf2bc0321d9cbf18c84dba30
+    #weChatPayCertFilePath: F:\pay\wechatpay_1D2CC7C7BCB1166B1F72D183D20BC8A2470C52EB.pem
+    #notifyUrl: https://5062c9fb.r10.cpolar.top/notify/paySuccess
+    #refundNotifyUrl: https://5062c9fb.r10.cpolar.top/notify/refundSuccess
