@@ -71,4 +71,21 @@ public interface DishMapper {
      * @param id
      */
     void getStatus(@Param("status") String status,@Param("id") String id);
+
+    /**
+     * 根据 setmeal字段中的 dish_id 在 dishMapper 中 查询 菜品的状态
+     * @param dishIds
+     * @return
+     */
+    Long selectByIdAndStatus(List<Long> dishIds);
+
+    /**
+     * 根据分类id查询所有 在售 菜品信息
+     *
+     * @param dish
+     * @return
+     */
+    @Select("select * from dish where category_id = #{categoryId} and status = #{status}")
+    List<Dish> getByCategoryIdWithStatus(Dish dish);
+
 }

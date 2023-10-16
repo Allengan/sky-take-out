@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sky.mapper.SetmealMapper">
+
+    <!--请务必使用  useGeneratedKeys="true" keyProperty="id" 返回主键 否则报错-->
+<insert id="insertSelective" useGeneratedKeys="true" keyProperty="id">
+        insert into setmeal(category_id, name, price, status, description, image, create_time, update_time, create_user,
+        update_user)
+        values (#{categoryId}, #{name}, #{price}, #{status}, #{description}, #{image}, #{createTime}, #{updateTime},
+        #{createUser}, #{updateUser})
+    </insert>
+
+
+    <!--    分页条件查询套餐和套餐类别名称数据-->
+    <select id="pageQuery" resultType="com.sky.vo.SetmealVO">
+        select sm.*, c.name as categoryName
+        from setmeal sm
+        left join category c on sm.category_id = c.id
+        <where>
+            <if test="name!=null and name!=' '">
+                sm.name like concat('%',#{name},'%')
+            </if>
+            <if test="categoryId!=null">
+                and sm.category_id = #{categoryId}
+            </if>
+            <if test="status!=null">
+                and sm.status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <!--套餐修改-->
+<update id="update">
+    update setmeal
+    <set>
+        <if test="categoryId != null">
+            category_id = #{categoryId},
+        </if>
+        <if test="name != null and name != ''">
+            name = #{name},
+        </if>
+        <if test="price != null">
+            price = #{price},
+        </if>
+        <if test="status != null">
+            status = #{status},
+        </if>
+        <if test="description != null">
+            description = #{description},
+        </if>
+        <if test="image != null">
+            image = #{image},
+        </if>
+        <if test="updateTime != null">
+            update_time = #{updateTime},
+        </if>
+
+        <if test="updateUser != null">
+            update_user = #{updateUser},
+        </if>
+    </set>
+    where id = #{id}
+    </update>
+
+    <select id="list" parameterType="Setmeal" resultType="Setmeal">
+        select * from setmeal
+        <where>
+            <if test="name != null">
+                and name like concat('%',#{name},'%')
+            </if>
+            <if test="categoryId != null">
+                and category_id = #{categoryId}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+<select id="countByMap" resultType="java.lang.Integer">
+    select count(id) from setmeal
+    <where>
+        <if test="status != null">
+            and status = #{status}
+        </if>
+        <if test="categoryId != null">
+            and category_id = #{categoryId}
+        </if>
+    </where>
+    </select>
+</mapper>
