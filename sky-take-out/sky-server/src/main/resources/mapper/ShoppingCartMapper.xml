@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sky.mapper.ShoppingCartMapper">
+    <!--查询购物车中的数据-->
+    <select id="list" resultType="com.sky.entity.ShoppingCart">
+        select * from shopping_cart
+        <where>
+            <if test="dishId != null">
+                dish_id = #{dishId}
+            </if>
+            <if test="setmealId != null">
+               and setmeal_id = #{setmealId}
+            </if>
+            <if test="dishFlavor != null">
+             and   dish_flavor = #{dishFlavor}
+            </if>
+        </where>
+    </select>
+    <!--更新购物车数量-->
+    <update id="setNumber">
+        update shopping_cart set number = #{number} where id = #{id}
+    </update>
+    <!--添加购物车-->
+    <insert id="insert">
+        insert into shopping_cart (name, image, user_id, dish_id, setmeal_id, dish_flavor, number, amount,
+                                   create_time)
+        VALUES (#{name},#{image},#{userId},#{dishId},#{setmealId},#{dishFlavor},#{number},#{amount},#{createTime})
+    </insert>
+    <!--清空购物车-->
+    <delete id="clean">
+        delete from shopping_cart where user_id = #{userId}
+    </delete>
+
+    <delete id="subShoppingCartDish">
+        delete from shopping_cart
+        <where>
+            <if test="setmealId != null">
+                setmeal_id=#{setmealId}
+            </if>
+            <if test="dishId != null">
+                dish_id=#{dishId}
+            </if>
+            <if test="dishFlavor != null">
+                and dish_flavor = #{dishFlavor}
+            </if>
+        </where>
+    </delete>
+</mapper>
