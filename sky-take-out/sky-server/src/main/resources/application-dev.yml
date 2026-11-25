@@ -10,7 +10,7 @@ sky:
   alioss:
     endpoint: oss-cn-beijing.aliyuncs.com
     access-key-id: xxxxxx
-    access-key-secret: aIammJLJRcuaUbuwdsaCELk7xXDufY
+    access-key-secret: xxxx
     bucket-name: sky-take-out-202310
   redis:
     host: localhost
@@ -19,12 +19,12 @@ sky:
     database: 10
   # 微信小程序配置
   wechat:
-    appid: wxa6adaf704dd62f7a     #小程序的appid
-    secret: 4eb9ac9af54031f61ee5c145fa2aa1c2  #小程序的秘钥
+    appid: xxxx     #小程序的appid
+    secret: xxxx  #小程序的秘钥
     #mchid: 1605278902
-    #mchSerialNo: 58F1380F88F96A0FE68773E96D8C3276AE3610EF
+    #mchSerialNo: xxxx
     #privateKeyFilePath: F:\pay\apiclient_key.pem
-    #apiV3Key: 29afcfe4cf2bc0321d9cbf18c84dba30
-    #weChatPayCertFilePath: F:\pay\wechatpay_1D2CC7C7BCB1166B1F72D183D20BC8A2470C52EB.pem
+    #apiV3Key: xzxzxzx
+    #weChatPayCertFilePath: F:\pay\xxx.pem
     #notifyUrl: https://5062c9fb.r10.cpolar.top/notify/paySuccess
     #refundNotifyUrl: https://5062c9fb.r10.cpolar.top/notify/refundSuccess
